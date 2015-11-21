@@ -1,0 +1,3 @@
+# -*- coding: utf-8 -*-
+db.define_table('Journal_Events', Field('Title'), Field('Description','text'),Field('Reminder','datetime'),Field('upload', 'upload'),Field('mail_id'),Field('status'),auth.signature)
+db.define_table('Tag',Field('tagged_by','reference auth_user'),Field('tagged','reference auth_user'),Field('post','reference Journal_Events'),auth.signature)

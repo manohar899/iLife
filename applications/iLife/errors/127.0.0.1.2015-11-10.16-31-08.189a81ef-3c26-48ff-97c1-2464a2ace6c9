@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.Exception'> Validation error, field:Your_Name <class 'gluon.validators.IS_NOT_EMPTY'>"
+p3
+sS'layer'
+p4
+S'/home/manohar/web2py/applications/iLife/controllers/default.py'
+p5
+sS'code'
+p6
+S'# -*- coding: utf-8 -*-\n# this file is released under public domain and you can use without limitations\n\n#########################################################################\n## This is a sample controller\n## - index is the default action of any application\n## - user is required for authentication and authorization\n## - download is for downloading files uploaded in the db (does streaming)\n#########################################################################\n\ndef index():\n    form = SQLFORM.factory(Field(\'Your_Name\', requires=IS_NOT_EMPTY),Field(\'Birth_Date\', \'date\')).process()\n    if form.accepted:\n        response.flash = "Form Accepted"\n        redirect(URL(\'other\',vars={\'yourName\':form.vars.Your_Name}))\n    elif form.errors:\n        response.flash = "Form Has Errors"\n    else:\n        response.flash = "Form First time displayed"\n    return locals()\n\ndef other():\n    response.flash = "Welcome to iLife"\n    name="Welcome to iLife Mr. %s" % request.vars.yourName\n    return locals()\n\ndef user():\n    """\n    exposes:\n    http://..../[app]/default/user/login\n    http://..../[app]/default/user/logout\n    http://..../[app]/default/user/register\n    http://..../[app]/default/user/profile\n    http://..../[app]/default/user/retrieve_password\n    http://..../[app]/default/user/change_password\n    http://..../[app]/default/user/manage_users (requires membership in\n    http://..../[app]/default/user/bulk_register\n    use @auth.requires_login()\n        @auth.requires_membership(\'group name\')\n        @auth.requires_permission(\'read\',\'table name\',record_id)\n    to decorate functions that need access control\n    """\n    return dict(form=auth())\n\n\n@cache.action()\ndef download():\n    """\n    allows downloading of uploaded files\n    http://..../[app]/default/download/[filename]\n    """\n    return response.download(request, db)\n\n\ndef call():\n    """\n    exposes services. for example:\n    http://..../[app]/default/call/jsonrpc\n    decorate with @services.jsonrpc the functions to expose\n    supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv\n    """\n    return service()\n\nresponse._vars=response._caller(index)\n'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/home/manohar/web2py/gluon/restricted.py", line 227, in restricted\n    exec ccode in environment\n  File "/home/manohar/web2py/applications/iLife/controllers/default.py", line 64, in <module>\n  File "/home/manohar/web2py/gluon/globals.py", line 412, in <lambda>\n    self._caller = lambda f: f()\n  File "/home/manohar/web2py/applications/iLife/controllers/default.py", line 12, in index\n    form = SQLFORM.factory(Field(\'Your_Name\', requires=IS_NOT_EMPTY),Field(\'Birth_Date\', \'date\')).process()\n  File "/home/manohar/web2py/gluon/html.py", line 2301, in process\n    self.validate(**kwargs)\n  File "/home/manohar/web2py/gluon/html.py", line 2238, in validate\n    if self.accepts(**kwargs):\n  File "/home/manohar/web2py/gluon/sqlhtml.py", line 1495, in accepts\n    **kwargs\n  File "/home/manohar/web2py/gluon/html.py", line 2119, in accepts\n    status = self._traverse(status, hideerror)\n  File "/home/manohar/web2py/gluon/html.py", line 885, in _traverse\n    newstatus = c._traverse(status, hideerror) and newstatus\n  File "/home/manohar/web2py/gluon/html.py", line 885, in _traverse\n    newstatus = c._traverse(status, hideerror) and newstatus\n  File "/home/manohar/web2py/gluon/html.py", line 885, in _traverse\n    newstatus = c._traverse(status, hideerror) and newstatus\n  File "/home/manohar/web2py/gluon/html.py", line 885, in _traverse\n    newstatus = c._traverse(status, hideerror) and newstatus\n  File "/home/manohar/web2py/gluon/html.py", line 892, in _traverse\n    newstatus = self._validate()\n  File "/home/manohar/web2py/gluon/html.py", line 1860, in _validate\n    raise Exception(msg)\nException: Validation error, field:Your_Name <class \'gluon.validators.IS_NOT_EMPTY\'>\n'
+p11
+s.

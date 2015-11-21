@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.NameError'> name 'a' is not defined"
+p3
+sS'layer'
+p4
+S'/home/manohar/web2py/applications/admin/controllers/shell.py'
+p5
+sS'code'
+p6
+S"import sys\nimport cStringIO\nimport gluon.contrib.shell\nimport code\nimport thread\nimport cgi\nfrom gluon.shell import env\n\nif DEMO_MODE or MULTI_USER_MODE:\n    session.flash = T('disabled in demo mode')\n    redirect(URL('default', 'site'))\n\nFE = 10 ** 9\n\n\ndef index():\n    app = request.args(0) or 'admin'\n    reset()\n    return dict(app=app)\n\n\ndef callback():\n    app = request.args[0]\n    command = request.vars.statement\n    escape = command[:1] != '!'\n    history = session['history:' + app] = session.get(\n        'history:' + app, gluon.contrib.shell.History())\n    if not escape:\n        command = command[1:]\n    if command == '%reset':\n        reset()\n        return '*** reset ***'\n    elif command[0] == '%':\n        try:\n            command = session['commands:' + app][int(command[1:])]\n        except ValueError:\n            return ''\n    session['commands:' + app].append(command)\n    environ = env(app, True, extra_request=dict(is_https=request.is_https))\n    output = gluon.contrib.shell.run(history, command, environ)\n    k = len(session['commands:' + app]) - 1\n    #output = PRE(output)\n    #return TABLE(TR('In[%i]:'%k,PRE(command)),TR('Out[%i]:'%k,output))\n    return cgi.escape('In [%i] : %s%s\\n' % (k + 1, command, output))\n\n\ndef reset():\n    app = request.args(0) or 'admin'\n    session['commands:' + app] = []\n    session['history:' + app] = gluon.contrib.shell.History()\n    return 'done'\n\nresponse._vars=response._caller(callback)\n"
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/home/manohar/web2py/gluon/restricted.py", line 227, in restricted\n    exec ccode in environment\n  File "/home/manohar/web2py/applications/admin/controllers/shell.py", line 53, in <module>\n  File "/home/manohar/web2py/gluon/globals.py", line 412, in <lambda>\n    self._caller = lambda f: f()\n  File "/home/manohar/web2py/applications/admin/controllers/shell.py", line 40, in callback\n    output = gluon.contrib.shell.run(history, command, environ)\n  File "/home/manohar/web2py/gluon/contrib/shell.py", line 215, in run\n    exec code in statement_module.__dict__\n  File "<string>", line 1, in <module>\nNameError: name \'a\' is not defined\n'
+p11
+s.

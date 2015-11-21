@@ -1,0 +1,25 @@
+import time
+from datetime import datetime
+from gluon.tools import Mail
+mail = Mail()
+mail.settings.server = 'smtp.gmail.com:587'
+mail.settings.sender = 'manoharsteam@gmail.com'
+mail.settings.login = 'manoharsteam@gmail.com:thegreat69'
+print "hello world"
+while True:
+    q1 = db.Journal_Events.Reminder>=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    q2 = db.Journal_Events.status != "sent"
+    rows = db( q1 & q2).select()
+    print rows
+    print "printed"
+    for row in rows:
+        if mail.send(to=row.mail_id,
+            subject=row.Title,
+            message=row.Description):
+            print row.status
+            row.update_record(status='sent')
+        else:
+            row.update_record(status='failed')
+            print row.status
+        db.commit()
+    time.sleep(60) # check every minute

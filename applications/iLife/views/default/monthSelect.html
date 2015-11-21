@@ -1,0 +1,73 @@
+{{extend 'layout.html'}}
+
+{{for mn in mnts:}}
+
+<a href = "http://localhost:8000/iLife/default/displayJournal/{{=mn}}" alt="Click to open">
+    <div class="multidiv">
+        <br> <b>
+        {{=monthName[mn]}}</b> <br /><br>
+    </div>
+</a>
+
+{{pass}}
+
+<a href = "{{=URL('iLife','default/displayJournal')}}" alt="Click to open">
+    <div class="multidiv">
+        <br> <b>January</b> <br /><br>
+    </div>
+</a>
+    <a href = "{{=URL('iLife','default/displayJournal','2')}}" alt="Click to open">
+    <div class="multidiv">
+        <br> <b>February</b> <br /><br>
+    </div>
+</a>
+        <a href = "{{=URL('iLife','default/displayJournal','3')}}" alt="Click to open">
+    <div class="multidiv">
+        <br> <b>March</b> <br /><br>
+    </div>
+        </a>
+     <a href = "{{=URL('iLife','default/displayJournal','4')}}" alt="Click to open">
+    <div class="multidiv">
+        <br> <b>April</b> <br /><br>
+    </div>
+        </a>
+     <a href = "{{=URL('iLife','default/displayJournal','5')}}" alt="Click to open">
+    <div class="multidiv">
+        <br> <b>May</b> <br /><br>
+    </div>
+        </a>
+     <a href = "{{=URL('iLife','default/displayJournal','6')}}" alt="Click to open">
+    <div class="multidiv">
+        <br> <b>June</b> <br /><br>
+    </div>
+        </a>
+    <a href = "{{=URL('iLife','default/displayJournal','7')}}" alt="Click to open">
+    <div class="multidiv">
+        <br> <b>July</b> <br /><br>
+    </div>
+        </a>
+    <a href = "{{=URL('iLife','default/displayJournal','8')}}" alt="Click to open">
+    <div class="multidiv">
+        <br> <b>August</b> <br /><br>
+    </div>
+        </a>
+    <a href = "{{=URL('iLife','default/displayJournal','9')}}" alt="Click to open">
+    <div class="multidiv">
+        <br> <b>September</b> <br /><br>
+    </div>
+        </a>
+    <a href = "{{=URL('iLife','default/displayJournal','10')}}" alt="Click to open">
+    <div class="multidiv">
+        <br> <b>October</b> <br /><br>
+    </div>
+        </a>
+    <a href = "{{=URL('iLife','default/displayJournal','11')}}" alt="Click to open">
+    <div class="multidiv">
+        <br> <b>November</b> <br /><br>
+    </div>
+        </a>
+    <a href = "{{=URL('iLife','default/displayJournal','12')}}" alt="Click to open">
+    <div class="multidiv">
+        <br> <b>December</b> <br /><br>
+    </div>
+        </a>

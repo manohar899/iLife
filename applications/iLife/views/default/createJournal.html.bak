@@ -1,0 +1,25 @@
+{{extend 'layout.html'}}
+
+<body>
+{{=form}}
+    <div>
+        <table class="table table-bordered">
+           <thead>
+              <tr>
+                <th align='center'>ID</th>
+                <th>Title</th>
+                <th>Desc</th>
+              </tr>
+            </thead>
+             {{for row in rows:}}
+            <tr>
+            <td>
+                {{=row.id}}
+            </td>
+            <td>{{=row.Title}}</td>
+            <td>{{=row.Description}}</td>
+            </tr>
+            {{pass}}
+        </table>
+    </div>
+</body>

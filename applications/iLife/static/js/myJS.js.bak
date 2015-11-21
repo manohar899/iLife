@@ -1,0 +1,15 @@
+function addUser()
+{
+    name = document.getElementById("selector").value;
+    setValue = document.getElementById("names").value;
+    if(setValue != "")
+    setValue = setValue+','+name;
+    else
+        setValue = name;
+    document.getElementById("names").innerHTML = setValue;
+}
+
+jQuery("#click").onclick(function(){
+    val = document.getElementById("selector").value;
+    alert(val);
+      ajax({{=URL('default', 'echo')}}, ['val'], target)});

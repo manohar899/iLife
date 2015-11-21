@@ -1,0 +1,61 @@
+{{extend 'layout.html'}}
+
+<div class="panel panel-info">
+      <div class="panel-heading"><u>  <h2>
+        Welcome {{=session.auth.user.first_name}}
+</h2>
+      </u></div>
+</div>
+<div class="multidivbig">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Your Journals</div>
+      <div class="panel-body">
+        {{for yr in yrs:}}
+        <a href = "http://localhost:8000/iLife/default/monthSelect/{{=yr}}" alt="Click to open">
+    <div class="multidiv">
+        <br> <b>{{=yr}}</b> <br /><br>
+    </div>
+        </a>
+{{pass}}
+          <a href = "{{=URL('iLife','default/monthSelect','2013')}}" alt="Click to open">
+    <div class="multidiv">
+        <br> <b>2013</b> <br /><br>
+    </div>
+    </a>
+<a href = "{{=URL('iLife','default/monthSelect','2012')}}" alt="Click to open">
+    <div class="multidiv">
+        <br> <b>2012</b> <br /><br>
+    </div>
+    </a>
+</div>
+        </div>
+    </div>
+
+
+<div class="multidivbig">
+   <div class="panel panel-primary">
+      <div class="panel-heading">Shared Posts</div>
+      <div class="panel-body">
+{{for share in shares:}}
+<a href = "http://localhost:8000/iLife/default/getDetails/{{=share.Journal_Events.id}}" alt="Click to open">
+    <div class="multidiv">
+        <br> <b>{{=share.Journal_Events.Title}}</b> <br /><br>
+    </div>
+</a>
+{{pass}}
+</div>
+    </div>
+</div>
+<div class="multidivbig">
+     <div class="panel panel-primary">
+      <div class="panel-heading">Memories from Last Year</div>
+      <div class="panel-body">
+{{for mem in memories:}}
+<a href = "http://localhost:8000/iLife/default/getDetails/{{=mem.id}}" alt="Click to open">
+    <div class="multidiv">
+        <br> <b>{{=mem.Title}}</b> <br /><br>
+    </div>
+</a>
+{{pass}}
+         </div>
+</div>

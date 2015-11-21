@@ -1,0 +1,32 @@
+{{extend 'layout.html'}}
+
+<div class="panel panel-warning">
+      <div class="panel-heading"><h1>
+    {{=row[0].Title}}
+</h1>
+          <p>
+                  Created On: {{=row[0].created_on}}
+             <p class = ".text-right">
+                 Reminder: {{=row[0].Reminder}}
+          </p> 
+          </p>
+    </div>
+      <div class="panel-body">
+          
+          <p class="bg-info">
+    {{=row[0].Description}}
+</p>
+          <hr>
+<h3>
+    Uploaded Files
+</h3>
+<p>
+        {{if str(row[0].upload).endswith(".jpg") or str(row[0].upload).endswith(".png"):}}
+        <img src = "http://localhost:8000/iLife/appadmin/download/db/{{=row[0].upload}}">
+        {{else:}}
+        <a href= "http://localhost:8000/iLife/appadmin/download/db/{{=row[0].upload}}">Download File</a>
+        {{pass}}
+    </p>
+
+      </div>
+    </div>

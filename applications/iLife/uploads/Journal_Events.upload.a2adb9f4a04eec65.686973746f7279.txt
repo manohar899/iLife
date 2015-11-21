@@ -1,0 +1,114 @@
+ 1 history 3
+ 2 history 1
+ 3 history
+ 4 ls
+ 5 ps
+ 6 clear
+ 7 history 2
+ 8 clear
+ 9 exit
+ 10 history 3
+ 11 exit
+ 12 history 3
+ 13 exit
+ 14 ls
+ 15 ps
+ 16 po
+ 17 clear
+ 18 history 3
+ 19 history 5 | grep "clear"
+ 20 clear
+ 21 exit
+ 22 ls
+ 23 history 5
+ 24 exit
+ 25 history 4 | grep "history 4"
+ 26 exit
+ 27 cd ..
+ 28 exit
+ 29 cd ..
+ 30 exit
+ 31 cd ..
+ 32 gdb shell
+ 33 cd ..
+ 34 exit
+ 35 cd ..
+ 36 exit
+ 37 cd ..
+ 38 cd 201505551
+ 39 ls
+ 40 ls -l
+ 41 history 4
+ 42 history 4 | grep "history"
+ 43 history
+ 44 
+ 45 history
+ 46 exit
+ 47 ls | wc | wc | wc | wc | wc
+ 48 ls | wc
+ 49 ls | wc | wc
+ 50 ls | wc | wc | wc
+ 51 ls | wc | wc | wc | wc
+ 52 ls | wc | wc | wc | wc | wc
+ 53 ls | grep "a" | wc | wc | wc
+ 54 ls | grep "a" | wc | wc | wc | wc
+ 55 ls | grep "a" | wc | wc | wc | wc
+ 56 ls | wc | wc | wc | wc | wc | wc
+ 57 ls | wc | wc | wc | wc | wc
+ 58 ls | wc | wc | wc | wc
+ 59 exit
+ 60 ls | wc | wc | wc | wc | wc
+ 61 exit
+ 62 ls | wc | wc | wc | wc | ps
+ 63 ls | wc | wc | wc | wc | wc
+ 64 ls | wc | wc | wc | wc | wc
+ 65 ls | wc | wc | wc | wc | wc
+ 66 |wc
+ 67 ls | wc | wc | wc | wc | wc | wc
+ 68 ls | wc | wc | wc | wc | wc | wc
+ 69 ls | wc | wc | wc | wc | wc | wc| wc | wc | wc | wc| wc | wc | wc | wc| wc | wc | wc | wc| wc | wc | wc | wc
+ 70 ls | wc | wc | wc | wc | wc | wc| wc | wc | wc | wc| wc | wc | wc | wc| wc
+ 71 ls | wc | wc | wc | wc | wc | wc| wc | wc | wc | wc| wc | wc | wc | wc
+ 72 ls | wc | wc | wc | wc | wc | wc| wc | wc | wc | wc| wc | wc | wc | wc
+ 73 ls | wc | wc | wc | wc | wc | wc| wc | wc | wc | wc| wc | wc | wc | wc
+ 74 ls | wc | wc | wc | wc | wc | wc| wc | wc | wc | wc| wc | wc | wc | wc
+ 75 ls | wc | wc | wc | wc | wc | wc| wc | wc | wc | wc| wc | wc | wc 
+ 76 ls | wc | wc | wc | wc | wc | wc| wc | wc | wc | wc| wc | wc | wc 
+ 77  ls | wc | wc | wc | wc | wc | wc| wc | wc | wc | wc| wc | wc | wc | wc 
+ 78  ls | wc | wc | wc | wc | wc | wc| wc | wc | wc | wc| wc | wc | wc | wc 
+ 79  ls | wc | wc | wc | wc | wc | wc| wc | wc | wc | wc| wc | wc | wc | wc
+ 80 ls
+ 81 ls
+ 82 ls | wc
+ 83  ls | wc | wc | wc | wc | wc | wc| wc | wc | wc | wc| wc | wc | wc | wc 
+ 84  ls | wc | wc | wc | wc | wc | wc| wc | wc | wc | wc| wc | wc | wc | wc | wc
+ 85  ls | wc | wc | wc | wc | wc | wc| wc | wc | wc | wc| wc | wc | wc | wc 
+ 86  ls | wc | wc | wc | wc | wc | wc| wc | wc | wc | wc| wc | wc | wc 
+ 87  ls | wc | wc | wc | wc | wc | wc| wc | wc | wc | wc| wc | wc | wc 
+ 88 ls
+ 89  ls | wc | wc | wc | wc | wc | wc| wc | wc | wc | wc| wc | wc | wc 
+ 90  ls | wc | wc | wc | wc | wc | wc| wc | wc | wc | wc| wc 
+ 91  ls | wc | wc | wc | wc | wc | wc| wc | wc | wc | wc
+ 92  ls | wc | wc | wc | wc | wc | wc| wc | wc | wc
+ 93  ls | wc | wc | wc | wc | wc
+ 94  ls | wc | wc | wc | wc | wc | wc| wc | wc
+ 95 ls | wc | wc | wc | wc | wc 
+ 96 ls | wc | wc | wc | wc | wc | wc
+ 97 ls | wc | wc | wc | wc | wc | wc | wc
+ 98 ls | wc | wc | wc | wc | wc | wc |wc | wc
+ 99 if(cmds[cmd] == NULL)
+ 100 			{
+ 101 				cmds[cmd] = (char **) malloc(sizeof(char *) * 100);
+ 102 				for(j=0;j<100;j++)
+ 103 					{
+ 104 						cmds[cmd][j] = (char *) malloc(sizeof(char)*100);
+ 105 						memset(cmds[cmd][j],0,strlen(cmds[cmd][j]));
+ 106 					}
+ 107 			}ls
+ 108 ls
+ 109 ps
+ 110 clear
+ 111 alskdfs
+ 112 ls
+ 113 ls | wc | wc | wc | wc | wc | wc | wc | wc | wc | wc | wc | wc | wc | wc | wc | wc
+ 114 ls | wc | wc | wc | wc | wc

@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.NameError'> global name 'auth_user' is not defined"
+p3
+sS'layer'
+p4
+S'/home/manohar/web2py/applications/iLife/controllers/default.py'
+p5
+sS'code'
+p6
+S'# -*- coding: utf-8 -*-\n# this file is released under public domain and you can use without limitations\n\n#########################################################################\n## This is a sample controller\n## - index is the default action of any application\n## - user is required for authentication and authorization\n## - download is for downloading files uploaded in the db (does streaming)\n#########################################################################\n\n@auth.requires_login()\ndef index():\n    q1 = db.Journal_Events.created_by == auth_user.id\n    rows = db(db.Journal_Events).select(q1)\n    desc=[]\n    i = 0\n    for row in rows:\n        string = row.Description[0:50]+"......."\n        desc.append(string)\n    return locals()\n\n@auth.requires_login()\ndef createJournal():\n    form = SQLFORM(db.Journal_Events).process()\n    rows = db(db.Journal_Events).select()\n    if form.accepted:\n        redirect(URL(\'journals\'))\n    elif form.errors:\n        response.flash = "Form Has Errors"\n    else:\n        response.flash = "Form First time displayed"\n    return locals()\n\n\n@auth.requires_login()\ndef journals():\n    rows = db(db.Journal_Events).select()\n    return locals()\n\n@auth.requires_login()\ndef search():\n    form = SQLFORM.grid(db.Journal_Events)\n    return locals()\n\n@auth.requires_login()\ndef displayJournal():\n    q1 = db.Journal_Events.id == request.args[0]\n    rows = db(q1).select()\n    #form = SQLFORM.db(db.Journal_Events).select(where id = request.args[0])\n    return locals()\n\ndef user():\n    """\n    exposes:\n    http://..../[app]/default/user/login\n    http://..../[app]/default/user/logout\n    http://..../[app]/default/user/register\n    http://..../[app]/default/user/profile\n    http://..../[app]/default/user/retrieve_password\n    http://..../[app]/default/user/change_password\n    http://..../[app]/default/user/manage_users (requires membership in\n    http://..../[app]/default/user/bulk_register\n    use @auth.requires_login()\n        @auth.requires_membership(\'group name\')\n        @auth.requires_permission(\'read\',\'table name\',record_id)\n    to decorate functions that need access control\n    """\n    return dict(form=auth())\n\n\n@cache.action()\ndef download():\n    """\n    allows downloading of uploaded files\n    http://..../[app]/default/download/[filename]\n    """\n    return response.download(request, db)\n\n\ndef call():\n    """\n    exposes services. for example:\n    http://..../[app]/default/call/jsonrpc\n    decorate with @services.jsonrpc the functions to expose\n    supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv\n    """\n    return service()\n\nresponse._vars=response._caller(index)\n'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/home/manohar/web2py/gluon/restricted.py", line 227, in restricted\n    exec ccode in environment\n  File "/home/manohar/web2py/applications/iLife/controllers/default.py", line 89, in <module>\n  File "/home/manohar/web2py/gluon/globals.py", line 412, in <lambda>\n    self._caller = lambda f: f()\n  File "/home/manohar/web2py/gluon/tools.py", line 3774, in f\n    return action(*a, **b)\n  File "/home/manohar/web2py/applications/iLife/controllers/default.py", line 13, in index\n    q1 = db.Journal_Events.created_by == auth_user.id\nNameError: global name \'auth_user\' is not defined\n'
+p11
+s.

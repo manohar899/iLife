@@ -1,0 +1,15 @@
+{{extend 'layout.html'}}
+
+<nav>
+  <ul class="pager">
+    <li class="previous"><a href="http://localhost:8000/iLife/default/monthSelect/{{=session.year}}"><span aria-hidden="true">&larr;</span>Back</a></li>
+  </ul>
+</nav>
+
+{{for row in rows:}}
+<a href = "http://localhost:8000/iLife/default/getDetails/{{=row.id}}" alt="Click to open">
+    <div class="multidiv">
+        <br> <b>{{=row.Title}}</b> <br /><br>
+    </div>
+</a>
+{{pass}}
